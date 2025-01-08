@@ -1,0 +1,77 @@
+RAID 0
+
+ lsblk
+ mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc
+ lsblk
+ mkfs.ext4 /dev/md0
+ mkdir /mnt/raid0
+ mount /dev/md0 /dev/raid0
+ df -h
+ cd /mnt/raid0
+ nano test.txt
+ cat test.txt
+ mdadm --stop /dev/md0
+ mdadm --assemble /dev/md0
+ mdadm --add /dev/md0 /dev/sdc
+ mdadm --detail /dev/md0
+ 
+ 
+_____________________________________________________________________________________________________________________________________________________________________________________________________
+
+LVM
+
+lsblk
+apt-get install lvm2
+pvcreate /dev/sdb /dev/sdc
+pvs
+vgcreate hpcsa /dev/sdb /dev/adc
+vgs
+lvcreate -n hpcsa_lab1 --size 1G hpcsa
+lvs
+fdisk /dev/mapper/hpcsa-hpcsa_lab1
+fdisk -l
+mkfs.ext4 /dev/mappe/hpcsa-hpcsa_lab1
+mkdir /mnt/disk-1
+mount /dev/mapper/hpcsa-hpcsa_lab1 /mnt/disk-1
+df -h
+lvextend -L +4G /dev/mapper/hpcsa-hpcsa_lab1 /mnt/disk-1
+lvs
+df -h
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+ RAID5#
+  #add Three HDD in Virtual Machine
+  1.apt-get install mdadm
+  2.dadm --create --verbose /dev/md0 --level=5 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd
+   3.lsblk
+        NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+    sda      8:0    0   20G  0 disk 
+          ─sda1   8:1    0   19G  0 part /
+          ─sda2   8:2    0    1K  0 part 
+          ─sda5   8:5    0  975M  0 part [SWAP]
+             sdb      8:16   0    8G  0 disk 
+             sdc      8:32   0    8G  0 disk
+             sdd      8:48   0    8G  0 disk 
+            sr0     11:0    1 1024M  0 rom 
+4.mdadm --detail --scan /dev/md0 >> /etc/mdadm/mdadm.conf 
+5.cat /etc/mdadm/mdadm.conf 
+6. update-initramfs -u
+7. mkfs.ext4 /dev/md0  
+8. mkdir /mnt/raid_5
+9.mount /dev/md0 /mnt/raid_5/
+10. df -h
+11. cd /mnt/raid_5/
+12. nano test.txt
+13.halt
+  remove one drive on vm
+14.lsblk
+15.mdadm --stop /dev/md0
+16.mdadm --assemble /dev/md0
+17. mount /dev/md0 /mnt/raid_5/
+18.cd /mnt/raid_5
+19.ls
+20.cat test.txt 
+21.mdadm --detail /dev/md0
+ 

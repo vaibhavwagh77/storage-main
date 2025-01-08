@@ -1,0 +1,152 @@
+https://www.beegfs.io/release/beegfs_7.4.5/
+
+
+deb  https://www.beegfs.io/release/beegfs_7.4.5  bookworm non-free
+wget https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs
+apt-key add GPG-KEY-beegfs 
+
+
+
+apt-get install linux-headers-$(uname -r)
+/etc/init.d/beegfs-client rebuild
+
+beegfs-helperd and beegfs-client 
+
+  87  hostnamectl set-hostname beegfs-mgmt-meta
+   88  exit
+   89  clear
+   90  nano /etc/apt/sources.list
+   91  clear
+   92  apt-get update
+   93  wget -qO 
+   94  wget -qO https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs | apt-key add -
+   95  apt-get install gnupg
+   96  wget -qO https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs | apt-key add -
+  100  wget https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs
+  101  ls
+  102  apt-key GPG-KEY-beegfs 
+  103  apt-key add GPG-KEY-beegfs 
+  104  clear
+  105  apt-get update
+  106  #wget https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs
+  107  #apt-key add GPG-KEY-beegfs 
+  108  lsblk 
+  109  mkfs.ext4 /dev/sdb
+  110  mkdir /mnt/sdbdisk
+  111  mount /dev/sdb /mnt/sdbdisk/
+  112  clear
+  113  df -h
+  114  apt-get install beegfs-mgmtd
+  115  dd if=/dev/random of=/etc/beegfs/connauthfile bs=128 count=1
+  116  chown root:root /etc/beegfs/connauthfile
+  117  chmod 400 /etc/beegfs/connauthfile
+  118  nano /etc/beegfs/beegfs-mgmtd.conf
+  119  nano /etc/beegfs/beegfs-mgmtd.conf
+  120  cd /opt/beegfs/
+  121  ls
+  122  cd sbin/
+  123  ls
+  124  mkdir -p /data/beegfs/beegfs_mgmtd
+  125  ./beegfs-setup-mgmtd -p /data/beegfs/beegfs_mgmtd
+  126  apt-get install -y beegfs-meta
+  127  systemctl start beegfs-mgmtd && systemctl status beegfs-mgmtd
+  128  hostname
+  129  ./beegfs-setup-meta -p /mnt/sdbdisk/ -s 1 -m beegfs-mgmt-meta -f 
+  130  systemctl start beegfs-meta && systemctl status beegfs-meta
+  131  systemctl start beegfs-meta && systemctl status beegfs-meta
+  132  systemctl status beegfs-meta
+  133  q
+  134  nano /etc/beegfs/beegfs-meta.conf 
+  135  nano /etc/beegfs/beegfs-meta.conf 
+  136  systemctl start beegfs-meta && systemctl status beegfs-meta
+  137  apt-get install net-tools
+  138  clear
+  139  netstat -atpn
+  140  cat /etc/hosts
+  141  history 
+  142  clear
+  143  cat /etc/hosts
+  144  scp /etc/beegfs/connauthfile beegfs-storage-01:/etc/beegfs/
+  145  scp /etc/beegfs/connauthfile beegfs-storage-02:/etc/beegfs/
+  146  hostname
+  147  apt-get install beegfs-mon
+  148  nano /etc/bhpcsa_labeegfs/beegfs-mon.conf 
+  149  nano /etc/beegfs/beegfs-mon.auth 
+  150  netstat -atpn
+  151  systemctl status beegfs-mon
+  152  systemctl start beegfs-mon
+  153  systemctl status beegfs-mon
+  154  nano /etc/beegfs/beegfs-mon.auth 
+  155  nano /etc/beegfs/beegfs-mon.conf 
+  156  nano /etc/beegfs/beegfs-mon.conf 
+  157  systemctl start beegfs-mon
+  158  systemctl status beegfs-mon
+  159  cd /opt/beegfs/sbin/
+  160  ls
+  161  ./beegfs-mon -h
+  162  ./beegfs-mon -H
+  163  ./beegfs-mon -h
+  164  nano /etc/beegfs/beegfs-mon.conf 
+  165  nano /etc/beegfs/beegfs-meta.conf 
+  166  nano /etc/bhpcsa_labeegfs/beegfs-mon.conf 
+  167  systemctl start beegfs-mon
+  168  systemctl status beegfs-mon
+  169  netstat -atpn
+  170  systemctl status beegfs-mon
+  171  systemctl shpcsa_labhpcsa_labtatus beegfs-mon
+  172  netstat -atpn
+  173  scp /etc/beegfs/connauthfile 192.168.82.246:/etc/beegfs/
+  174  hostname
+  175  cd /etc/beegfs/
+  176  ls
+  177  nano beegfs-mon.
+  178  nano beegfs-mon.conf 
+  179  cat beegfs-mgmtd.conf 
+  180  history 
+  89  apt-get install gnupg
+   90  nano /etc/apt/sources.list
+   91  wget https://www.beegfs.io/release/beegfs_7.4.5/gpg/GPG-KEY-beegfs
+   92  apt-key add GPG-KEY-beegfs 
+   93  apt-get update
+   94  apt-get install beegfs-storage
+   95  clear
+   96  lsblk 
+   97  mkfs.ext4 /dev/sdb
+   98  mkfs.ext4 /dev/sdc
+   99  clear
+  100  mkdir /mnt/raid1
+  101  mkdir /mnt/raid2
+  102  mount /dev/sdb /mnt/raid1/
+  103  mount /dev/sdb /mnt/raid2
+  104  nano /etc/beegfs/beegfs-storage.conf 
+  105  cd /opt/beegfs/sbin/
+  106  ls
+  107  ./beegfs-setup-storage -p /mnt/raid1/ -s 4 -i 401 -m beegfs-mgmt-meta
+  108  ./beegfs-setup-storage -p /mnt/raid2/ -s 4 -i 402 -m beegfs-mgmt-meta
+  109  df -h
+  110  mount /dev/sdc /mnt/raid1
+  111  df -h
+  112  ./beegfs-setup-storage -p /mnt/raid2/ -s 4 -i 402 -m beegfs-mgmt-meta
+  113  ./beegfs-setup-storage -p /mnt/raid1/ -s 4 -i 401 -m beegfs-mgmt-meta
+  114  ./beegfs-setup-storage -p /mnt/raid2/ -s 4 -i 402 -m beegfs-mgmt-meta 
+  115  ./beegfs-setup-storage -p /mnt/raid2/ -s 4 -i 402 -m beegfs-mgmt-meta
+  116  ./beegfs-setup-storage -p /mnt/raid2/ -s 4 -i 402 -m beegfs-mgmt-meta -f
+  117  df -h
+  118  systemctl start beegfs-storage && systemctl status beegfs-storage
+  119  clear
+  120  apt-cache search beegfs
+  121  systemctl status beegfs-storage
+  122  q
+  123  systemctl start  beegfs-storage
+  124  systemctl status beegfs-storage
+  125  df -h
+  126  nano /etc/beegfs/beegfs-storage.conf 
+  127  blkid 
+  128  nano /etc/beegfs/beegfs-storage.conf 
+  129  nano /etc/beegfs/beegfs-storage.conf 
+  130  nano /etc/beegfs/beegfs-storage.conf 
+  131  systemctl start  beegfs-storage
+  132  systemctl status beegfs-storage
+  133  systemctl status beegfs-storage
+  134  cat /etc/beegfs/beegfs-storage.conf 
+  135  history 

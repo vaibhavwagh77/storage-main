@@ -1,0 +1,52 @@
+  LVM LAB
+  
+    87  lsblk 
+   88  pvcreate /dev/sdb /dev/sdc
+   89  apt-get install lvm2
+   90  clear
+   91  pvcreate /dev/sdb /dev/sdc
+   92  vgcreate HPCSA /dev/sdb /dev/sdc
+   93  pvs
+   94  vgs
+   95  pvdisplay 
+   96  vgdisplay 
+   97  clear
+   98  
+   99  lvs
+  100  vgs
+  101  lvcreate -n hpcsa_lab1 --size 1G HPCSA
+  102  lvs
+  103  vgs
+  104  clear
+  105  fdisk /dev/mapper/HPCSA-hpcsa_lab
+  106  fdisk -l
+  107  lvremove -n hpcsa_lab1 
+  108  lvremove -n hpcsa_lab1
+  109  mkfs.ext4 /dev/mapper/HPCSA-hpcsa_lab1
+  110  fdisk -l
+  111  mkdir /mnt/disk-1
+gisters
+What’s y
+  115  lvextend -L +2G /dev/mapper/HPCSA-hpcsa_lab
+  116  lvs
+  117  lvsresize2fs /dev/mapper/HPCSA-hpcsa_lab
+  118  /dev/mapper/HPCSA-hpcsa_lab
+  119* /dev/mapper/HPCSA-hpcsa_lab1
+  120  resize2fs /dev/mapper/HPCSA-hpcsa_lab
+  121  resize2fs /dev/mapper/HPCSA-hpcsa_lab1
+  122  clear
+  123  lvcreate -n hpcsa_lab_3 --size 1G HPCSA
+  124  lvs
+  125  mkfs.ext4 /dev/mapper/HPCSA-hpcsa_lab_3 
+  126  clear
+  127  mkdir /mnt/disk_3
+  128  mount /dev/mapper/HPCSA-hpcsa_lab_3 /mnt/disk_3/
+  129  df -h
+  
+  130  lvextend -L +2G /dev/mapper/HPCSA-hpcsa_lab_3 
+  131  lvs
+  132  df -h
+  133  resize2fs /dev/mapper/HPCSA-hpcsa_lab_3 
+  134  df -h
+  135  history
+  

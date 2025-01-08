@@ -1,0 +1,33 @@
+lsblk
+apt-get install lvm2
+pvcreate /dev/sdb /dev/sdc
+vgcreate HPCSA /dev/sdb /dev/sdc
+pvs
+vgs
+pvdisplay 
+vgdisplay
+
+lvs
+vgs
+
+ lvcreate -n hpcsa_lab1 --size 1G HPCSA
+lvs
+vgs
+fdisk /dev/mapper/HPCSA-hpcsa_lab1
+fdisk -l
+
+lvcreate -n hpcsa_lab3 --size 1G HPCSA
+lvs
+mkfs.ext4 /dev/mapper/HPCSA-hpcsa_lab3
+
+fdisk -l
+mkdir /mnt/disk_3
+mount /dev/mapper/HPCSA-hpcsa_lab_3 /mnt/disk_3
+df -h
+
+lvextend -L +2G /dev/mapper/HPCSA-hpcsa_lab_3 
+vs
+df -h
+resize2fs /dev/mapper/HPCSA-hpcsa_lab_3 
+df -h
+
